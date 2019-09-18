@@ -45,6 +45,7 @@ $("#huiqi").click(function () {
         return
     }
     board.retract();
+    board.retract();
     //重绘棋盘
     board.drawboard();
     AI.postMessage(command("retract"))
@@ -52,8 +53,8 @@ $("#huiqi").click(function () {
 
 $("#start").click(function () {
     var player_type = $("#type").val();  //获取Select选择的Value
-    var type = player_type==-1?"白子":"黑子"
-    set_status("游戏开始，您执"+type)
+    var type = player_type==-1?"white chess":"black chess"
+    set_status("Game begin, you are using:"+type)
     win =0;
     cxt.clearRect(0, 0, 700, 700);
     board.init();
@@ -105,6 +106,7 @@ canvas.onclick=function(e){//给canvas添加点击事件
 
 
         AI.postMessage( command('save',move));
+
         ai_think=1;
         set_status("AI is thinking. Please be patient.")
     }
